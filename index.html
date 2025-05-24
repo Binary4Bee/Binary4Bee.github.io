@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Just You & Me</title>
+  <style>
+    body {
+      background: radial-gradient(#1c1c1c, #000);
+      color: #ffe4e1;
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    #message {
+      font-size: 1.4rem;
+      white-space: pre-wrap;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #ff69b4;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0 20px #ff1493;
+    }
+
+    .heart {
+      font-size: 4rem;
+      color: #ff1493;
+      animation: pulse 1.5s infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="heart">💖</div>
+  <div id="message"></div>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_47ed1fddb1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    const message = `
+Moje lásko 💗,
+
+Dnes večer budeme jen ty a já.
+Svět zmizí, a všechno, na čem bude záležet, bude přítomný okamžik.
+
+Tvoje oči, tvůj hlas, teplo tvého doteku... je to všechno, co potřebuji.
+Nejsi jen krásná — jsi můj nejoblíbenější pocit.
+
+Zapomeňme na čas. Udělejme si tento večer nezapomenutelným.
+`;
+
+    let i = 0;
+    const speed = 70;
+
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("message").textContent += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    typeWriter();
+  </script>
+</body>
+</html>
